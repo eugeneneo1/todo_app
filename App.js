@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import Header from './Components/header';
 import { Avatar } from 'react-native-elements' ;
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <Header textIwant={"hello"} /> 
+      <Header textIwant={"goodbyeeee"} />
       <Avatar
   size="xlarge"
   rounded
@@ -33,5 +36,7 @@ const styles = StyleSheet.create({
     color: 'blue',
     fontWeight: 'bold',
     fontSize: 30,
-    alignItems: 'center'
+    alignItems: 'center',
+  },
 });
+
