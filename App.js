@@ -35,7 +35,7 @@ class App extends React.Component {
 
         <Button
           title="year review"
-          onPress={() => this.props.navigation.navigate('Flexbox')}
+          onPress={() => this.props.navigation.navigate('FlexboxScreen')}
         />
 
       </View>
