@@ -1,14 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 import Header from './Components/header';
-import { Avatar } from 'react-native-elements' ;
+import { Avatar } from 'react-native-elements';
+import TodoScreen from './screens/Todo';
+import Flexbox from './screens/Flexbox';
 
-export default class App extends React.Component {
+class App extends React.Component {
+
+  static navigationOptions = {
+    title: 'Home',
+  };
+
   render() {
     return (
       <View style={styles.container}>
       <Header textIwant={"MARK"} /> 
+      <View style={{ padding: 20, backgroundColor: 'blue'}} />
       <Header textIwant={"Zuckerburg"} />
+      <View style={{ padding: 20}} />
       <Avatar
   size="xlarge"
   rounded
@@ -17,13 +27,31 @@ export default class App extends React.Component {
   activeOpacity={0.7}
 />
         <Text style={styles.bigblue}>Dating App Profile: Billionaire, Founder of Facebook</Text>
-        <Button title={'Hello'} onPress={()=>{ console.log ('( ͡° ل͜ ͡°)') ; }}
-        color="turquoise"
+
+        <Button
+          title="*clap clap*"
+          onPress={() => this.props.navigation.navigate('Todo')}
         />
+
+        <Button
+          title="year review"
+          onPress={() => this.props.navigation.navigate('Flexbox')}
+        />
+
       </View>
     );
   }
 }
+
+const AppNavigator = createStackNavigator({
+  Home: App,
+  Todo: TodoScreen,
+  FlexboxScreen: Flexbox,
+});
+
+const AppContainer = createAppContainer(AppNavigator);
+
+export default AppContainer
 
 const styles = StyleSheet.create({
   container: {
@@ -39,4 +67,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
